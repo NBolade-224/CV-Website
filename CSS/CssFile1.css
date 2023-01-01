@@ -1,0 +1,82 @@
+html {
+  scroll-snap-type: y mandatory;
+}
+
+body {
+    transform: scale(1);
+    transform-origin: 0 0;
+}
+.header {
+  text-align: center;
+}
+.container {
+  min-width: 500px;
+  /* // height: 900px; */
+}
+.container-fluid {
+  margin: 0px;
+  scroll-snap-align: start;
+  scroll-margin: 0px; 
+  min-height: 800px;
+  min-width: 1320px;
+  }
+.row {
+  position: relative;
+  margin-top: 30px;
+}
+.LeftB1{
+width: 15%;
+position: absolute;
+height: 100%;
+transition: width 2s;
+z-index: 1;
+}
+.LeftB2{
+width: 30%;
+position: absolute;
+height: 100%;
+transition: width 2s;
+z-index: 1;
+}
+.Home-Page-Li a {
+  display: block;
+  text-align: center;
+  position: relative;
+  top: 10%;
+}
+.Home-Page-Li {
+  height: 50px;
+  margin-top: 20px;
+}
+.Home-Page-Ul {
+  margin-top: 100px;
+}
+.navbar {
+  visibility: hidden;
+}
+@keyframes keycont1 {
+  from {background-color: #6c757d;}
+  25%  {background-color: #0d6efd;}
+  50%  {background-color: #198754;}
+  75%  {background-color: #dc3545;}
+  100% {background-color: #6c757d;}
+}
+@keyframes keycont2 {
+  from {color: #198754;}
+  25%  {color: #dc3545;}
+  50%  {color: #6c757d;}
+  75%  {color: #0d6efd;}
+  100% {color: #198754;}
+}
+#Container1 {
+  background-color: #6c757d;;
+  animation-name: keycont1;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+#title1 {
+  color: #198754;
+  animation-name: keycont2;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
