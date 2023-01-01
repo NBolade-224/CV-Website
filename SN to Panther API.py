@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse, Response, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
-import uvicorn, requests
+import uvicorn
 from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 
 app = FastAPI()
@@ -14,7 +14,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app.add_middleware(HTTPSRedirectMiddleware)
 
 @app.get("/") # uses path param
 async def ReturnWebPageFunc():
@@ -33,5 +32,9 @@ async def ReturnCSSFileFunc():
 async def ReturnJSFileFunc():
     return FileResponse("JS/JSfile1.js")
 
+@app.get("/JS/manifest.json") # uses path param
+async def ReturnJSONFileFunc():
+    return FileResponse("JS/manifest.json")
+
 if __name__ == "__main__":
-    uvicorn.run(app, port=453, host='0.0.0.0', ssl_keyfile="/etc/letsencrypt/live/nbolade.co.uk/privkey.pem", ssl_certfile="/etc/letsencrypt/live/nbolade.co.uk/fullchain.pem")
+    uvicorn.run(app, port=443, host='0.0.0.0', ssl_keyfile="certs/privkey.pem", ssl_certfile="certs/fullchain.pem")
