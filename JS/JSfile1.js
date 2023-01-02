@@ -4,16 +4,13 @@ var StartOfHTML = function() {
   console.log(`width = ${newWidth}`)
   console.log(`height = ${newHeight}`)
   var AllContainers = document.getElementsByClassName("container-fluid");
-  if (newWidth < 500) {
-    for (let i = 0; i < AllContainers.length; i++) {
-      AllContainers[i].style.height = `${newWidth}px`;
-    }
-  } else {
+  if (newWidth > 600) {
     for (let i = 0; i < AllContainers.length; i++) {
       AllContainers[i].style.height = `${newHeight}px`;
     }
   };
 };
+
 
 // var ScollFunc1 = function() {
 //   var height = window.innerHeight;

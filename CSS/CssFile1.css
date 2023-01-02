@@ -8,12 +8,9 @@ html {
 .header {
   text-align: center;
 }
-.container-xxl {
-  min-width: 500px;
-  /* // height: 900px; */
-}
 .container-fluid {
   scroll-snap-align: start;
+  /* Min height CANNOT be overridden by JS, it will also be the default height if not specified */
   min-height: 800px;
   min-width: 1320px;
   max-height: 950px;
