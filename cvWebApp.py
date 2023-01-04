@@ -2,9 +2,11 @@ from fastapi import FastAPI
 from fastapi.responses import RedirectResponse, Response, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
+from subprocess import Popen
 from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 
 app = FastAPI()
+app.add_middleware(HTTPSRedirectMiddleware)
 
 origins = ["*"]
 app.add_middleware(
@@ -37,4 +39,5 @@ async def ReturnJSONFileFunc():
     return FileResponse("JS/manifest.json")
 
 if __name__ == "__main__":
+    Popen(['python', '-m', 'https_redirect'])
     uvicorn.run(app, port=443, host='0.0.0.0', ssl_keyfile="certs/privkey.pem", ssl_certfile="certs/fullchain.pem")
